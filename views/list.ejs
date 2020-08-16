@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title><%=msg%></title>
+  </head>
+  <body>
+    <div class="bs-example">
+        <a href="/Admin/Search">Search Employee</a>
+    </div>
+    <form action="/Search" method="post">
+      <table border="1">
+						<thead>
+							<tr class="table100-head">
+                <% for(var i=0; i < hdata.length; i++) { %>
+                   <th><%= hdata[i] %></th>
+                <% } %>
+							</tr>
+						</thead>
+						<tbody>
+              <% for(var i=0; i < rows.length; i++) { %>
+                <tr>
+                <% for(var j=0; j < rows[i].length-1; j++) { %>
+                   <td><%= rows[i][j] %></td>
+                <% } %>
+                <% for(var k=0; k < links.length; k++) { %>
+                <td><a href="<%= links[k] %><%= rows[i][j] %>"><%=linkName[k]%></a></td>
+                <% } %>
+               </tr>
+              <% } %>
+						</tbody>
+					</table>
+    </form>
+    <form class="" action="<%=link%>" method="get">
+      <input type="submit" name="" value="Go back">
+    </form>
+  </body>
+  <script>
+  function check(){
+    var search = document.getElementById("search");
+    if(search==null){
+      console.log(search);
+      alert("Searchbar Can't be null");
+    }
+    else{
+      //alert(search);
+      $.ajax({
+            url: "/Admin/Search",
+            type: "GET",
+            data: search,
+            success: function (data) {
+                if (data.invo != "") {
+                    alert("Invoie Number Used Before");
+                    $("#submitBtn").prop("disabled", true);
+                    $("#invoice").focus();
+                }
+                else if (data.invo == "") {
+                    $("#submitBtn").prop("disabled", false);
+                }
+            },
+            error: function () {
+                alert("Ajax Requiest Error");
+            }
+        });
+    }
+  }
+  </script>
+</html>

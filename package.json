@@ -1,0 +1,25 @@
+{
+  "name": "mid_lab_exam",
+  "version": "1.0.0",
+  "description": "Lab Exam",
+  "main": "app.js",
+  "scripts": {
+    "test": "node app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/asiqur-rahman/MID_LAB_EXAM.git"
+  },
+  "keywords": [
+    "atp2_lab_exam"
+  ],
+  "author": "Md. Asiqur Rahman Khan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/asiqur-rahman/MID_LAB_EXAM/issues"
+  },
+  "homepage": "https://github.com/asiqur-rahman/MID_LAB_EXAM#readme",
+  "dependencies": {
+    "express-validator": "^6.6.1"
+  }
+}
